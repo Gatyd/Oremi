@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environnement virtuel
+env/
+venv/
+ENV/
+.venv/
+.env/
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+media/
+staticfiles/
+static_root/
+static/
+local_settings.py
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Systèmes Linux
+*.swp
+*.swo
+
+# Migrations compilées
+**/migrations/__pycache__/
+
+# dotenv
+.env
+.env.*
