@@ -1,0 +1,13 @@
+Django>=4.2
+django-cors-headers==4.7.0
+djangorestframework==3.16.0
+djangorestframework_simplejwt==5.5.0
+dj-database-url
+drf-spectacular==0.28.0
+drf-spectacular-sidecar==2025.6.1
+gunicorn==23.0.0
+paddleocr==3.0.1
+paddlex==3.0.1
+paddlepaddle==3.0.0
+pillow==11.2.1
+opencv-python
