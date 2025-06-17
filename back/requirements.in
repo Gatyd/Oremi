@@ -11,3 +11,9 @@ paddlex==3.0.1
 paddlepaddle==3.0.0
 pillow==11.2.1
 opencv-python
+# Chatbot dependencies
+transformers
+torch
+sentence-transformers
+textblob
+langdetect

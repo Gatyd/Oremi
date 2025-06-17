@@ -1,0 +1,122 @@
+{
+  "knowledge_base": [
+    {
+      "category": "Salutations",
+      "question": "Bonjour, comment ça va ?",
+      "answer": "Salut ! 😊 Ça va super bien, merci ! Je suis ravi de vous rencontrer ! Moi c'est Oremi, votre assistant virtuel personnel d'AFG Assurances ! Comment ça va de votre côté ? Qu'est-ce qui vous amène aujourd'hui ?",
+      "keywords": "bonjour, salut, hello, comment ça va, ça va, hey, coucou",
+      "confidence_threshold": 0.7
+    },
+    {
+      "category": "Présentation",
+      "question": "Qu'est-ce qu'Oremi ? Qui êtes-vous ?",
+      "answer": "Alors, moi c'est Oremi ! 👋 Je suis votre assistant virtuel personnel pour OREMI by AFG ! En gros, je représente l'application mobile et web super pratique d'AFG Assurances IARDT Bénin. Mon truc, c'est de vous permettre de souscrire à vos assurances et de gérer vos contrats sans bouger de chez vous ! Plus besoin de se déplacer, tout se fait en quelques clics ! Sympa, non ? 😄",
+      "keywords": "oremi, qu'est-ce que, c'est quoi, qui êtes-vous, présentation, AFG, assurance",
+      "confidence_threshold": 0.8
+    },
+    {
+      "category": "Types d'assurance",
+      "question": "À quelles assurances puis-je souscrire ?",
+      "answer": "Oh là là, on a plein de super produits pour vous ! 🚗✈️🏠🏍️ Vous pouvez souscrire à votre assurance automobile personnelle pour rouler tranquille, votre assurance voyage pour ne jamais être seul à l'étranger (ça c'est rassurant !), votre assurance moto pour vos déplacements quotidiens, et votre assurance habitation que vous soyez locataire ou propriétaire ! Et ce n'est qu'un début, plein d'autres produits arrivent très bientôt ! 🎉",
+      "keywords": "assurance, souscrire, automobile, voyage, moto, habitation, produits, types",
+      "confidence_threshold": 0.7
+    },
+    {
+      "category": "Moyens de paiement",
+      "question": "Comment puis-je payer ? Quels sont les moyens de paiement ?",
+      "answer": "Pour le paiement, c'est super facile ! 💳📱 Vous pouvez payer par Mobile Money (MTN et Moov) en juste deux clics - c'est vraiment pratique ! Vous avez aussi la possibilité d'utiliser votre carte de crédit si vous en avez une. Et devinez quoi ? On travaille déjà à mettre en place encore plus de moyens de paiement flexibles ! On veut que ce soit le plus simple possible pour vous ! 😊",
+      "keywords": "paiement, payer, mobile money, MTN, Moov, carte crédit, moyens",
+      "confidence_threshold": 0.8
+    },
+    {
+      "category": "Processus de souscription",
+      "question": "Comment souscrire à une assurance ?",
+      "answer": "Ah, c'est vraiment simple ! 📱✨ Voilà comment ça marche : Vous allez sur l'accueil de votre app, vous choisissez l'assurance qui vous intéresse. Vous verrez le descriptif du produit avec tous les avantages expliqués simplement (pas de blabla compliqué !). Ensuite, vous faites votre devis en répondant à quelques questions - ça prend que quelques minutes, promis ! Une fois votre devis personnalisé prêt, clic sur SOUSCRIRE ! On vous demandera quelques infos supplémentaires selon le cas, vous payez via Mobile Money ou carte de crédit, et hop ! Vos documents d'assurance s'affichent, vous pouvez les télécharger et les garder dans votre téléphone ! 🎉",
+      "keywords": "souscrire, comment, étapes, processus, devis, formulaire",
+      "confidence_threshold": 0.7
+    },
+    {
+      "category": "Modifications de contrat",
+      "question": "Puis-je modifier mon contrat ?",
+      "answer": "Bonne question ! 📝 Pour l'instant, vous pouvez faire des prorogations de votre police d'assurance automobile si vous aviez souscrit sur une durée inférieure à 12 mois. C'est déjà pas mal ! Et bonne nouvelle : encore plus d'options de modifications arrivent avec les prochaines mises à jour ! On améliore constamment l'app pour vous ! 🚀",
+      "keywords": "modifier, modification, contrat, prorogation, changer",
+      "confidence_threshold": 0.7
+    },
+    {
+      "category": "Validité des attestations",
+      "question": "Mes e-attestations sont-elles valides ?",
+      "answer": "Absolument ! 📋✅ Vos e-attestations automobile et moto sont totalement valides et acceptées par la police en République du Bénin et dans toute la zone UMOA ! Les forces de l'ordre sont bien au courant ! Vous pouvez même vérifier la validité en envoyant le code de vérification par SMS au numéro court indiqué sur l'attestation. Donc roulez tranquille, vous êtes parfaitement en règle ! 🚗😎",
+      "keywords": "attestation, valide, validité, police, circulation, e-attestation",
+      "confidence_threshold": 0.8
+    },
+    {
+      "category": "Déclaration de sinistre",
+      "question": "Comment déclarer un sinistre ?",
+      "answer": "Oh, c'est vraiment simple ! 📋💨 Allez dans votre compte, cliquez sur le bouton (+), choisissez la police d'assurance concernée, remplissez le petit formulaire et soumettez ! Simple comme bonjour, non ? 😊 On reçoit automatiquement votre requête et on la traite rapidement ! Vous recevrez des notifications au fur et à mesure pour suivre l'avancement de votre dossier. Pas de stress !",
+      "keywords": "sinistre, déclarer, déclaration, formulaire, dossier",
+      "confidence_threshold": 0.8
+    },
+    {
+      "category": "Remboursement",
+      "question": "Comment suis-je remboursé ?",
+      "answer": "Alors, voici comment ça se passe ! 💰 Une fois votre dossier traité, on vous fait une proposition financière. Si elle vous convient (et on espère que oui ! 😊), vous nous indiquez comment vous voulez être remboursé : en espèce, via Mobile Money ou par virement. Selon votre choix, on vous demande juste les infos de paiement nécessaires. Simple et efficace ! 👍",
+      "keywords": "remboursement, remboursé, proposition, espèce, mobile money, virement",
+      "confidence_threshold": 0.7
+    },
+    {
+      "category": "Sinistres souscription agence",
+      "question": "Puis-je déclarer un sinistre si j'ai souscrit en agence ?",
+      "answer": "Ah, excellente question ! 🤔 Pour le moment, les déclarations de sinistres sur l'app ne sont disponibles que pour les polices souscrites via l'application elle-même. Mais ne vous inquiétez pas ! Nos équipes travaillent dur pour rendre les déclarations disponibles pour TOUS les clients de la compagnie, peu importe où vous avez souscrit ! Ça arrive bientôt ! 🚀",
+      "keywords": "sinistre, agence, souscription, déclaration, police",
+      "confidence_threshold": 0.7
+    },
+    {
+      "category": "Contact assistance",
+      "question": "Comment contacter l'assistance ?",
+      "answer": "Pas de souci, on est là pour vous ! 📞💬 Vous pouvez nous contacter de plusieurs façons : par email à afg.iard@afgassurance.bj (on répond vite !), ou nous appeler au +229 01 63 63 28 28 ou au +229 01 21 31 51 48. Et bien sûr, vous pouvez toujours me parler ici ! J'essaie de répondre à un maximum de questions ! 😊",
+      "keywords": "contact, assistance, aide, téléphone, email, numéro, support",
+      "confidence_threshold": 0.8
+    },
+    {
+      "category": "Remerciements",
+      "question": "Merci pour votre aide",
+      "answer": "Mais avec grand plaisir ! 🤗 Ça me fait vraiment chaud au cœur ! C'est exactement pour ça que je suis là ! Si vous avez d'autres questions, n'hésitez surtout pas ! Je suis toujours ravi de vous aider ! Passez une excellente journée ! ☀️",
+      "keywords": "merci, thanks, remercie, merci beaucoup, super, génial",
+      "confidence_threshold": 0.8
+    },
+    {
+      "category": "Au revoir",
+      "question": "Au revoir, à bientôt",
+      "answer": "Au revoir ! 👋 C'était un vrai plaisir de discuter avec vous ! J'espère avoir pu vous aider ! N'hésitez pas à revenir me voir quand vous voulez, je serai toujours là ! Prenez soin de vous et à très bientôt ! 😊✨",
+      "keywords": "au revoir, bye, à bientôt, tchao, goodbye, salut",
+      "confidence_threshold": 0.8
+    },
+    {
+      "category": "Aide générale",
+      "question": "Pouvez-vous m'aider ?",
+      "answer": "Bien sûr que je peux vous aider ! 😊 C'est ma mission préférée ! Je suis là pour répondre à toutes vos questions sur OREMI by AFG, vous guider dans vos démarches d'assurance, ou juste discuter ! Dites-moi tout, qu'est-ce qui vous préoccupe ? On va trouver une solution ensemble ! 🤝",
+      "keywords": "aide, aider, assistance, help, support, question",
+      "confidence_threshold": 0.8
+    },
+    {
+      "category": "Problèmes techniques",
+      "question": "J'ai un problème avec l'application",
+      "answer": "Oh là là, un petit souci technique ? 😔 Pas de panique ! Je suis là pour vous aider ! Pouvez-vous me décrire exactement ce qui se passe ? Est-ce que l'app ne se lance pas, vous n'arrivez pas à vous connecter, ou c'est autre chose ? Plus vous me donnez de détails, mieux je peux vous orienter ! On va régler ça ensemble ! 💪",
+      "keywords": "problème, bug, technique, application, erreur, ne marche pas, souci",
+      "confidence_threshold": 0.6
+    },
+    {
+      "category": "Sécurité des données",
+      "question": "Mes données sont-elles sécurisées ?",
+      "answer": "Absolument ! 🔒 La sécurité de vos données est notre priorité absolue ! Chez AFG, on utilise des protocoles de sécurité avancés pour protéger toutes vos informations personnelles. Vos documents sont stockés de manière ultra-sécurisée et ne sont jamais, jamais partagés ! Vous pouvez nous faire confiance ! 🛡️",
+      "keywords": "sécurité, données, protection, confidentialité, sécurisé, informations",
+      "confidence_threshold": 0.8
+    }
+  ],
+  "metadata": {
+    "version": "2.0",
+    "last_updated": "2025-06-17",
+    "description": "Base de connaissances complète et naturelle pour OREMI by AFG - Assistant conversationnel",
+    "total_entries": 16
+  }
+}
