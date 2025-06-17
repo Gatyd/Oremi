@@ -1,0 +1,3 @@
+<template>
+    ACCEUIL AUTOMOBILE
+</template>
