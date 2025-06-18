@@ -1,17 +1,22 @@
 <script setup lang="ts">
 
-const state = reactive({
-    imatriculationPart1: '',
-    imatriculationPart2: '',
-    imatriculationPart3: '',
-    marque: '',
-    modele: '',
-    puissance_fiscale: 1, // Valeur par défaut à 1 au lieu de 0
-    numero_chassis: '',
-    date_mise_circulation: '',
-    places_assises: 5, // Valeur par défaut à 5 au lieu de 0
-    carburation: ''
-})
+// Props
+interface Props {
+    state: {
+        imatriculationPart1: string
+        imatriculationPart2: string
+        imatriculationPart3: string
+        marque: string
+        modele: string
+        puissance_fiscale: number
+        numero_chassis: string
+        date_mise_circulation: string
+        places_assises: number
+        carburation: string
+    }
+}
+
+const props = defineProps<Props>()
 
 // Events
 defineEmits<{
@@ -101,45 +106,45 @@ const fillFormFromApiResponse = (response: ApiResponse) => {
             // Format avec tirets: GE-107-EB
             const parts = immat.split('-')
             if (parts.length === 3) {
-                state.imatriculationPart1 = parts[0]
-                state.imatriculationPart2 = parts[1]
-                state.imatriculationPart3 = parts[2]
+                props.state.imatriculationPart1 = parts[0]
+                props.state.imatriculationPart2 = parts[1]
+                props.state.imatriculationPart3 = parts[2]
             }
         } else {
             // Format sans tirets: GE107EB
             // Généralement: 2 lettres + chiffres + 2 lettres
             const match = immat.match(/^([A-Z]{2})(\d+)([A-Z]{2})$/)
             if (match) {
-                state.imatriculationPart1 = match[1]
-                state.imatriculationPart2 = match[2]
-                state.imatriculationPart3 = match[3]
+                props.state.imatriculationPart1 = match[1]
+                props.state.imatriculationPart2 = match[2]
+                props.state.imatriculationPart3 = match[3]
             } else {
                 // Si le parsing échoue, mettre tout dans la partie centrale
-                state.imatriculationPart1 = ''
-                state.imatriculationPart2 = immat
-                state.imatriculationPart3 = ''
+                props.state.imatriculationPart1 = ''
+                props.state.imatriculationPart2 = immat
+                props.state.imatriculationPart3 = ''
             }
         }
     }
     
     if (response.marque_vehicule) {
-        state.marque = response.marque_vehicule.trim()
+        props.state.marque = response.marque_vehicule.trim()
     }
     
     if (response.modele_vehicule) {
-        state.modele = response.modele_vehicule.trim()
+        props.state.modele = response.modele_vehicule.trim()
     }
     
     if (response.cylindree && response.cylindree > 0) {
         // Convertir la cylindrée en puissance fiscale (approximation)
-        state.puissance_fiscale = Math.round(response.cylindree / 100)
+        props.state.puissance_fiscale = Math.round(response.cylindree / 100)
     } else {
         // Si pas de cylindrée, garder la valeur par défaut ou actuelle
         console.log('Pas de cylindrée fournie, puissance fiscale inchangée')
     }
     
     if (response.numero_chassis) {
-        state.numero_chassis = response.numero_chassis.trim()
+        props.state.numero_chassis = response.numero_chassis.trim()
     }
     
     if (response.date_mise_circulation) {
@@ -149,14 +154,14 @@ const fillFormFromApiResponse = (response: ApiResponse) => {
             const day = dateParts[0].padStart(2, '0')
             const month = dateParts[1].padStart(2, '0')
             const year = dateParts[2]
-            state.date_mise_circulation = `${year}-${month}-${day}`
+            props.state.date_mise_circulation = `${year}-${month}-${day}`
         }
     }
     
     if (response.nombre_places) {
         const places = parseInt(response.nombre_places)
         if (!isNaN(places) && places > 0) {
-            state.places_assises = places
+            props.state.places_assises = places
         }
     }
     
@@ -170,31 +175,31 @@ const fillFormFromApiResponse = (response: ApiResponse) => {
             'GP': 'GPL'
         }
         const mappedCarburation = carburationMap[response.carburation] || response.carburation
-        state.carburation = mappedCarburation
+        props.state.carburation = mappedCarburation
     }
     
 }
 
 // Fonctions pour les compteurs
 const incrementPuissance = () => {
-    state.puissance_fiscale++
+    props.state.puissance_fiscale++
 }
 
 const decrementPuissance = () => {
-    if (state.puissance_fiscale > 1) {
-        state.puissance_fiscale--
+    if (props.state.puissance_fiscale > 1) {
+        props.state.puissance_fiscale--
     }
 }
 
 const incrementPlaces = () => {
-    if (state.places_assises < 9) {
-        state.places_assises++
+    if (props.state.places_assises < 9) {
+        props.state.places_assises++
     }
 }
 
 const decrementPlaces = () => {
-    if (state.places_assises > 1) {
-        state.places_assises--
+    if (props.state.places_assises > 1) {
+        props.state.places_assises--
     }
 }
 
@@ -220,7 +225,7 @@ const fuelTypes = [
 
 <template>
     <div>
-        <UForm :state="state" @submit="$emit('submit', $event)"> <!-- Section upload de carte grise -->
+        <UForm :state="props.state" @submit="$emit('submit', $event)"> <!-- Section upload de carte grise -->
             <div class="mb-8">
                 <!-- Zone de drop pour l'image -->
                 <div class="relative border-2 border-dashed rounded-lg p-8 text-center mb-4 transition-all duration-300"
@@ -295,13 +300,12 @@ const fuelTypes = [
                     <div class="mb-6">
                         <label class="block font-medium text-gray-700 mb-5">
                             Plaque d'immatriculation et votre numéro de châssis
-                        </label>
-                        <div class="grid grid-cols-4 gap-2">
-                            <CustomInput v-model="state.imatriculationPart1" placeholder="AA" maxlength="2"
+                        </label>                        <div class="grid grid-cols-4 gap-2">
+                            <CustomInput v-model="props.state.imatriculationPart1" placeholder="AA" maxlength="2"
                                 class="col-span-1" />
-                            <CustomInput v-model="state.imatriculationPart2" placeholder="555X" maxlength="4"
+                            <CustomInput v-model="props.state.imatriculationPart2" placeholder="555X" maxlength="4"
                                 class="col-span-2" />
-                            <CustomInput v-model="state.imatriculationPart3" placeholder="BB" maxlength="2"
+                            <CustomInput v-model="props.state.imatriculationPart3" placeholder="BB" maxlength="2"
                                 class="col-span-1" />
                         </div>
                     </div>
@@ -309,14 +313,13 @@ const fuelTypes = [
                         <label class="block font-medium text-gray-700 mb-2">
                             Marque de véhicule
                         </label>
-                        <CustomInput v-model="state.marque" class="w-full" placeholder="Toyota" />
+                        <CustomInput v-model="props.state.marque" class="w-full" placeholder="Toyota" />
                     </div>
 
                     <div class="mb-6">
                         <label class="block font-medium text-gray-700 mb-2">
                             Modèle du véhicule
-                        </label>
-                        <CustomSelect v-model="state.modele" class="w-full" :items="vehicleModels"
+                        </label>                        <CustomSelect v-model="props.state.modele" class="w-full" :items="vehicleModels"
                             placeholder="Sélectionner un modèle">
                             <template #trailing>
                                 <Icon name="heroicons:chevron-down" class="w-4 h-4" />
@@ -332,8 +335,8 @@ const fuelTypes = [
                                 class="w-12 h-12 rounded-md border border-gray-300 flex items-center justify-center hover:bg-gray-100">
                                 <Icon name="heroicons:minus" class="w-4 h-4" />
                             </button>
-                            <CustomInput v-model="state.puissance_fiscale" class="w-[5rem]" />
-                            <span class="text-gray-500 text-sm">CV</span>
+                            <CustomInput v-model="props.state.puissance_fiscale" class="w-[5rem]" />
+                            <span class="text-gray-700 text-2xl font-semibold">CV</span>
                             <button type="button" @click="incrementPuissance"
                                 class="w-12 h-12 rounded-md border border-gray-300 flex items-center justify-center hover:bg-gray-100">
                                 <Icon name="heroicons:plus" class="w-4 h-4" />
@@ -341,13 +344,12 @@ const fuelTypes = [
                         </div>
                     </div>
                     <div class="mb-6">
-                        <CustomInput v-model="state.numero_chassis" class="w-full" placeholder="Numéro châssis" />
+                        <CustomInput v-model="props.state.numero_chassis" class="w-full" placeholder="Numéro châssis" />
                     </div>
                     <div class="mb-6">
                         <label class="block font-medium text-gray-700 mb-2">
                             Mise en circulation
-                        </label>
-                        <CustomInput v-model="state.date_mise_circulation"
+                        </label>                        <CustomInput v-model="props.state.date_mise_circulation"
                             trailing-icon="i-heroicons-calendar-days-16-solid" class="w-full ps-56" type="date"
                             placeholder="09/07/2012" />
                     </div>
@@ -360,7 +362,7 @@ const fuelTypes = [
                                 class="w-12 h-12 rounded-md border border-gray-300 flex items-center justify-center hover:bg-gray-100">
                                 <Icon name="heroicons:minus" class="w-4 h-4" />
                             </button>
-                            <CustomInput v-model="state.places_assises" class="w-[5rem]" />
+                            <CustomInput v-model="props.state.places_assises" class="w-[5rem]" />
                             <button type="button" @click="incrementPlaces"
                                 class="w-12 h-12 rounded-md border border-gray-300 flex items-center justify-center hover:bg-gray-100">
                                 <Icon name="heroicons:plus" class="w-4 h-4" />
@@ -370,8 +372,7 @@ const fuelTypes = [
                     <div class="mb-8">
                         <label class="block font-medium text-gray-700 mb-2">
                             Carburation
-                        </label>
-                        <CustomSelect v-model="state.carburation" class="w-full" :items="fuelTypes"
+                        </label>                        <CustomSelect v-model="props.state.carburation" class="w-full" :items="fuelTypes"
                             placeholder="Essence">
                             <template #trailing>
                                 <Icon name="heroicons:chevron-down" class="w-4 h-4" />
